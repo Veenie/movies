@@ -1,6 +1,6 @@
-<h1>Your Movies:</h1>
+<h1>Movies rated by <%= @name %>:</h1>
 </br>
-<h2>Click on the title if you wish to change the rating!</h2>
+<h2>Click on the title if you wish to update the rating!</h2>
 <% @movies.each do |m| %>
     <h4><a href="/movies/<%= m.id %>"><%= m.title %></a></h4>
     </br>
