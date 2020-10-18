@@ -27,11 +27,11 @@ class UsersController < ApplicationController
     erb :failure
   end
   
-  #user account page
+  #user account page listing their movies
   
   get '/account/:id' do
-    @user = User.find_by(id: params[:id])
-    erb:show
+    @movies = current_user.movies
+    erb :all
   end
 
   #sign up form
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     redirect '/' 
   end
 
-  
+
 
 
 

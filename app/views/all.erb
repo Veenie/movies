@@ -1,0 +1,10 @@
+<h1>Your Movies:</h1>
+</br>
+<h2>Click on the title if you wish to change the rating!</h2>
+<% @movies.each do |m| %>
+    <h4><a href="/movies/<%= m.id %>"><%= m.title %></a></h4>
+    </br>
+    <h4>STARS rating: <%= m.rating %></h4>
+    </br>
+ <% end %>
+
