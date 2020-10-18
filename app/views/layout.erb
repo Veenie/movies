@@ -14,7 +14,22 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+
+
+
+
+
     <div class="wrapper">
+    <h1>Your Movies:</h1>
+    <div class="nav">
+    <% if logged_in? %>
+    <a href="/">Create</a>
+    <a href="/">Create</a>
+    <a href="/logout">Logout</a>
+  
+    <% end %>
+  
+    </div>
 
         <%= yield %>
 

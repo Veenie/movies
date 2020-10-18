@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     #don't show home page for logged in users to avoid confusion about status
-    if is_logged_in?
+    if logged_in?
       redirect to "/account/#{current_user.id}"
   
     else
@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
    
 #return boolean to check login
 
-  def is_logged_in?
+  def logged_in?
     !!current_user
   end
 
