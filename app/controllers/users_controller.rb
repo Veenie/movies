@@ -30,8 +30,38 @@ class UsersController < ApplicationController
   #user account page
   
   get '/account/:id' do
-    "hello"
+    @user = User.find_by(id: params[:id])
+    erb:show
   end
+
+  #sign up form
+
+  get '/register' do
+    erb :register
+  end
+
+  post '/register' do
+    #create user with params entered
+    @user = User.create(params)
+    #login newly created user
+    session[:user_id] = @user.id
+    #redirect
+    redirect "/account/#{@user.id}"
+  end
+
+  get '/logout' do
+    #clear session cookie
+    session.clear
+    redirect '/' 
+  end
+
+  
+
+
+
+
+
+
     
 
 
