@@ -12,21 +12,27 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    #don't show home page for logged in users to avoid confusion about status
+    if is_logged_in?
+      redirect to "/account/#{current_user.id}"
+  
+    else
+      erb :welcome
+    end  
   end
   
   #helper methods
   
-  #track user
+  #track current user session
   
-  def current_user(session)
-    @user = User.find_by_id(session[:user_id])
+  def current_user
+    @user = User.find_by(id: session[:user_id])
   end
    
-#return boolean to validate login
+#return boolean to check login
 
-  def is_logged_in?(session)
-    !!session[:user_id]
+  def is_logged_in?
+    !!current_user
   end
 
 end
