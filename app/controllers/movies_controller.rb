@@ -1,9 +1,9 @@
 class MoviesController < ApplicationController
 
-#dynamic route to user's individual movie page
+#create new movie in user collection and rate it
 
-  get '/movies/:id' do
-    @movie = Movie.find(params[:id])
-    erb :show
+  get '/movies/new' do
+    
+    erb :new
   end
 end 
