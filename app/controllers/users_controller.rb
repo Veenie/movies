@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     erb :failure
   end
   
-  #user account page listing their movies
+  #user account page listing their movies (Read)
   
   get '/account/:id' do
     @movies = current_user.movies
