@@ -30,8 +30,7 @@ class UsersController < ApplicationController
   #user account page listing their movies (Read)
   
   get '/account/:id' do
-    @name = current_user.username
-    @movies = current_user.movies
+    @user = current_user
     erb :all
   end
 
