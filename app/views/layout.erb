@@ -20,6 +20,10 @@
 
 
     <div class="wrapper">
+
+    <% if flash[:error] %>
+    <h3 style="color:red;"> <%= flash[:error] %> </h3>
+   <% end %>
     
     <div class="nav">
     <% if logged_in? %>

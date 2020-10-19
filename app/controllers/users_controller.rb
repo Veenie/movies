@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   #render login form
   
   get '/login' do
+    #this is where you put a pry to check flash message because it redirects here
     erb :login
   end
   
@@ -20,11 +21,14 @@ class UsersController < ApplicationController
     #redirect their user page
     
       redirect to "/account/#{user.id}"
+
+      
     end
    
-    #failure
+    #failure, flash message must be paired with redirect, will show up when sent to page
+    flash[:error] = "Oops, looks like you entered in something wrong, try again!"
+    redirect '/login'
     
-    erb :failure
   end
   
   #user account page listing their movies (Read)
