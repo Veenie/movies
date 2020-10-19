@@ -7,12 +7,16 @@ class MoviesController < ApplicationController
   end
 
   post '/movies/new' do
+    
+    if !params["title"].empty?
     #recieve params from 'new' form, create used to save
-    
-    movie = Movie.create(title: params[:title], rating: params[:rating], user_id: current_user.id)
-    
+      movie = Movie.create(title: params[:title], rating: params[:rating], user_id: current_user.id)
+      redirect to "/"
+    else
+        erb :failure
 
-    redirect to "/"
+    end
+    
   end
   
   get '/movies/:id' do
