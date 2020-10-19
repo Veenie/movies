@@ -3,7 +3,11 @@ class MoviesController < ApplicationController
 #render form to create new movie in user collection and rate it
 
   get '/movies/new' do
-    erb :new
+    if logged_in?
+        erb :new
+    end
+    flash[:error] = "You must be logged in to do this!"
+    redirect '/'    
   end
 
   post '/movies/new' do
