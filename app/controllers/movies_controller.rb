@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
     if !params["title"].empty?
         
     #recieve params from 'new' form, create used to save
-      movie = Movie.create(title: params[:title], rating: params[:rating], user_id: current_user.id)
+      Movie.create(title: params[:title], rating: params[:rating], user_id: current_user.id)
       
       redirect to "/"
     else
@@ -27,6 +27,22 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     erb :edit
   end
+
+  #RackMethodOveride enabled in config, so we can use patch to edit with new params
+
+  patch '/movies/:id' do
+    @movie = Movie.find(params[:id])
+    @movie.update(title: params[:title], rating[:rating])
+    redirect '/'
+  end
+  
+  #delete button
+
+  delete '/movies/:id' do
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect '/'
+  end  
 
 
 

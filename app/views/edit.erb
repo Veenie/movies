@@ -1,1 +1,36 @@
-#form for editing
+<h1>Edit Post</h1>
+<form action="/movies/<%=@movie.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <label>Title:</label>
+    <input type="text" value="<%=@movie.title%>" name="title">
+    <label>Star Rating:</label>
+    </br>
+    </br>
+    <label><strong>1 Star</strong></label>
+    <input type="radio" name="rating" value="1">
+    </br>
+    <label><strong>2 Stars</strong></label>
+    <input type="radio" name="rating" value="2">
+    </br>
+    <label><strong>3 Stars</strong></label>
+    <input type="radio" name="rating" value="3">
+    </br>
+    <label><strong>4 Stars</strong></label>
+    <input type="radio" name="rating" value="4">
+    </br>
+    <label><strong>5 Stars</strong></label>
+    <input type="radio" name="rating" value="5">
+    </br>
+    </br>
+    <input type="submit" value="Edit Movie">
+</form>
+
+<h2>Use this button to delete this movie entry</h2>
+</br>
+<h3>Warning, cannot be undone!</h3>
+</br>
+</br>
+<form action="/movies/<%=@movie.id%>" method="post">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete this movie">
+</form>
