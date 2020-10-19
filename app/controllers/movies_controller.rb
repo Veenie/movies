@@ -1,9 +1,21 @@
 class MoviesController < ApplicationController
 
-#create new movie in user collection and rate it
+#render form to create new movie in user collection and rate it
 
   get '/movies/new' do
-    
     erb :new
   end
-end 
+
+  post '/movies/new' do
+    #recieve params from 'new' form, create used to save
+    
+    movie = Movie.create(title: params[:title], rating: params[:rating], user_id: current_user.id)
+    binding.pry
+
+    redirect to "/"
+
+  end  
+
+
+
+end
