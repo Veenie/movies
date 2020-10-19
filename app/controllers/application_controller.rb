@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
     #session id set to track user
     enable :sessions
     set :session_secret, "secret"
+    register Sinatra::Flash
   end
 
   get "/" do
