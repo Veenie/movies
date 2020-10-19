@@ -20,10 +20,12 @@ class MoviesController < ApplicationController
     end
     
   end
+
+  #edit action through movie's individual page, render form
   
   get '/movies/:id' do
     @movie = Movie.find(params[:id])
-    erb :show
+    erb :edit
   end
 
 

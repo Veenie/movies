@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   
   get '/account/:id' do
     @user = current_user
-    erb :all
+    erb :account
   end
 
   #sign up form
