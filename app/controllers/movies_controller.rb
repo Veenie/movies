@@ -44,7 +44,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
     redirect '/'
-  end  
+  end
 
 
 
