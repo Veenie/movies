@@ -47,10 +47,15 @@ class UsersController < ApplicationController
   post '/register' do
     #create user with params entered
     @user = User.create(params)
+    if @user.save
     #login newly created user
     session[:user_id] = @user.id
     #redirect
     redirect "/account/#{@user.id}"
+    end
+    #Input error handling
+    flash[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
+    redirect '/register'
   end
 
   get '/logout' do
