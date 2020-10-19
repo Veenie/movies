@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
-  #validates :title, uniqueness: true
   belongs_to :user
+  validates :title, :rating, presence: true
+  
 end

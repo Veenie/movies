@@ -8,14 +8,16 @@ class MoviesController < ApplicationController
 
   post '/movies/new' do
     
-    if !params["title"].empty?
-        
     #recieve params from 'new' form, create used to save
-      Movie.create(title: params[:title], rating: params[:rating], user_id: current_user.id)
+    movie = Movie.new(title: params[:title], rating: params[:rating], user_id: current_user.id)
+    
+    #If inputs valid it will save, so we control outcomes here
+    if movie.save
       
       redirect to "/"
     else
-        erb :failure
+        flash[:error] = "Looks like you didn't enter something correctly, try again!"
+        redirect '/movies/new'
 
     end
     
