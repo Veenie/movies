@@ -1,6 +1,6 @@
 <h1>Edit Post</h1>
 <form action="/movies/<%=@movie.id%>" method="post">
-    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="_method" value="patch">
     <label>Title:</label>
     <input type="text" value="<%=@movie.title%>" name="title">
     <label>Star Rating:</label>

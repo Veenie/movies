@@ -26,13 +26,15 @@ class MoviesController < ApplicationController
   get '/movies/:id' do
     @movie = Movie.find(params[:id])
     erb :edit
+    
   end
 
   #RackMethodOveride enabled in config, so we can use patch to edit with new params
 
   patch '/movies/:id' do
+    
     @movie = Movie.find(params[:id])
-    @movie.update(title: params[:title], rating[:rating])
+    @movie.update(title: params[:title], rating: params[:rating])
     redirect '/'
   end
   
