@@ -31,7 +31,12 @@ class MoviesController < ApplicationController
   
   get '/movies/:id' do
     @movie = Movie.find(params[:id])
-    erb :edit
+    if authorized(@movie)
+        erb :edit
+    else
+        flash[:error] = "You can only edit your own movies."
+        redirect '/'
+    end     
     
   end
 

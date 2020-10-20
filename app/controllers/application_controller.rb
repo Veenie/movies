@@ -36,4 +36,11 @@ class ApplicationController < Sinatra::Base
     !!current_user
   end
 
+  #authorization helper for edit and delete
+
+  def authorized(m)
+    m.user == current_user
+  end  
+
+
 end
