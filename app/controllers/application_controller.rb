@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(id: session[:user_id])
   end
    
-#return boolean to check login
+#boolean to check login
 
   def logged_in?
     !!current_user
