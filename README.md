@@ -1,10 +1,9 @@
 # Movies Sinatra Project
 
-Welcome to the Movies web application! This is a demo app created using Sinatra and ActiveRecord. Movies allows you to add and rate movies. Information is user-provided, requiring a username and password to login. 
+Welcome to the Movies application! This is an app created with Sinatra and ActiveRecord, among other gems. See gemfile for further details. Movies allows you to add and rate movies. Information is user-provided, requiring a username and password to login.
 
 ## Installation
 
-This project was created as part of the Flatiron School's Learn-Verified program. To see it in action:
 - download or clone this project 
 - `cd` into the `movies` directory 
 - run `bundle install` in your console
