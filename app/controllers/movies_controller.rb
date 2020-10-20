@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
     if authorized(@movie)
         erb :edit
     else
-        flash[:error] = "You can only edit your own movies."
+        flash[:error] = "You are not authorized to do that."
         redirect '/'
     end     
     
