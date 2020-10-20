@@ -47,7 +47,15 @@ class MoviesController < ApplicationController
     
     @movie = Movie.find(params[:id])
     @movie.update(title: params[:title], rating: params[:rating])
-    redirect '/'
+    if @movie.save
+      
+        redirect to "/"
+    else
+          flash[:error] = "Error: #{@movie.errors.full_messages.to_sentence}"
+          redirect '/movies/new'
+  
+    end
+    
   end
   
   #delete button
