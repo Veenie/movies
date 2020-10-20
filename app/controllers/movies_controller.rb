@@ -52,7 +52,7 @@ class MoviesController < ApplicationController
         redirect to "/"
     else
           flash[:error] = "Error: #{@movie.errors.full_messages.to_sentence}"
-          redirect '/movies/new'
+          redirect "/movies/#{@movie.id}"
   
     end
     
