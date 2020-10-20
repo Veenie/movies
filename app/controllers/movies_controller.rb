@@ -5,9 +5,10 @@ class MoviesController < ApplicationController
   get '/movies/new' do
     if logged_in?
         erb :new
-    end
+    else
     flash[:error] = "You must be logged in to do this!"
-    redirect '/'    
+    redirect '/'
+    end   
   end
 
   post '/movies/new' do

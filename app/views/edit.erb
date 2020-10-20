@@ -1,9 +1,11 @@
 <h1>Edit Post</h1>
 <form action="/movies/<%=@movie.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
-    <label>Title:</label>
+    <label><strong>Title:  </strong></label>
     <input type="text" value="<%=@movie.title%>" name="title">
-    <label>Star Rating:</label>
+    </br>
+    </br>
+    <label><strong>Star Rating:</strong></label>
     </br>
     </br>
     <label><strong>1 Star</strong></label>
@@ -24,10 +26,10 @@
     </br>
     <input type="submit" value="Edit Movie">
 </form>
-
-<h2>Use this button to delete this movie entry</h2>
 </br>
-<h3>Warning, cannot be undone!</h3>
+<h3>Use this button to delete this movie entry</h3>
+</br>
+<h3 style="color:red;">Warning, cannot be undone!</h3>
 </br>
 </br>
 <form action="/movies/<%=@movie.id%>" method="post">
