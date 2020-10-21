@@ -1,3 +1,5 @@
+#This is accessed at /movies/:id, via clicking on a movie title on the account page
+
 <h1>Edit Post</h1>
 <form action="/movies/<%=@movie.id%>" method="post">
     <input type="hidden" name="_method" value="patch">

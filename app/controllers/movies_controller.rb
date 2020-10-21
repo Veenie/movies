@@ -6,8 +6,8 @@ class MoviesController < ApplicationController
     if logged_in?
         erb :new
     else
-    flash[:error] = "You must be logged in to do this!"
-    redirect '/'
+      flash[:error] = "You must be logged in to do this!"
+      redirect '/'
     end   
   end
 
@@ -21,8 +21,8 @@ class MoviesController < ApplicationController
       
       redirect to "/"
     else
-        flash[:error] = "Error: #{movie.errors.full_messages.to_sentence}"
-        redirect '/movies/new'
+      flash[:error] = "Error: #{movie.errors.full_messages.to_sentence}"
+      redirect '/movies/new'
 
     end
     
@@ -49,12 +49,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.update(title: params[:title], rating: params[:rating])
     if @movie.save
-      
-        redirect to "/"
+      redirect to "/"
     else
           flash[:error] = "Error: #{@movie.errors.full_messages.to_sentence}"
           redirect "/movies/#{@movie.id}"
-  
     end
     
   end
