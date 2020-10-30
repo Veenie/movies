@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   
   get '/account/:id' do
     @user = current_user
+    @movies = @user.movies.order(:title)
     erb :account
   end
 
